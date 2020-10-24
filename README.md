@@ -39,13 +39,13 @@ Inser ct scan image,meta data
   A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
   Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
   ### Attributes
-   **Patient**- a unique Id for each patient (also the name of the patient's DICOM folder). <br/>
+   **Patient**- a unique Id for each patient (also the name of the patient's DICOM folder).<br/>
    **Weeks**- the relative number of weeks pre/post the baseline CT (may be negative).<br/>
    **FVC** - the recorded lung capacity in ml (through Spirometer).<br/>
-   **Percent**- a computed field which approximates the patient's FVC as a percent of the typical FVC for a person of similar characteristics<br/>.
+   **Percent**- a computed field which approximates the patient's FVC as a percent of the typical FVC for a person of similar characteristics.<br/>
    **Age** - Age of the Patient<br/>.
-   **Sex** - (Male/Female) <br/>.
-   **SmokingStatus** - In these three type of labels :- Currently_Smoking,Ex_Smokers, Never_smoked <br/>.
+   **Sex** - (Male/Female)<br/>
+   **SmokingStatus** - In these three type of labels :- Currently_Smoking,Ex_Smokers, Never_smoked.<br/>
 
 show how the FVC is decay wrt to week
 
