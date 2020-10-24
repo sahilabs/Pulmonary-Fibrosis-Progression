@@ -4,14 +4,15 @@
 * [Pulmonary-Fibrosis-Progression](#Pulmonary-Fibrosis-Progression)
 * [Symptoms](#Symptoms)
 * [Motivation](#Motivation)
+* [Library](#Library)
 * [DATA](#DATA)
   * [CT_Scan](#CT_Scan)
   * [TABULAR_DATA](#TABULAR_DATA)
    * [Attributes](#Attributes)
+* [AIM](#AIM)
  requirement
  library installation
- 
- segmentation
+ * [Lung_Segmentation](#Lung_Segmentation)
  sampler
  feature extraction
  feature engineering
@@ -33,17 +34,26 @@ and conduct a physical exam. During the physical exam, your doctor will use a st
 ## DATA
  ## CT_SCAN
   Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
-
+Inser ct scan image,meta data
  ## TABULAR_DATA  (Measuring_FVC)
   A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
   Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
- ## Attributes
-**Patient**- a unique Id for each patient (also the name of the patient's DICOM folder) <br/>
-**Weeks**- the relative number of weeks pre/post the baseline CT (may be negative)<br/>
-**FVC** - the recorded lung capacity in ml (through Spirometer)<br/>
-**Percent**- a computed field which approximates the patient's FVC as a percent of the typical FVC for a person of similar characteristics<br/>
-**Age** - Age of the Patient<br/>
-**Sex** - Male/Female<br/>
-**SmokingStatus** - In these three type of labels :- Currently_Smoking,Ex_Smokers, Never_smoked<br/>
+  ### Attributes
+   **Patient**- a unique Id for each patient (also the name of the patient's DICOM folder). <br/>
+   **Weeks**- the relative number of weeks pre/post the baseline CT (may be negative).<br/>
+   **FVC** - the recorded lung capacity in ml (through Spirometer).<br/>
+   **Percent**- a computed field which approximates the patient's FVC as a percent of the typical FVC for a person of similar characteristics<br/>.
+   **Age** - Age of the Patient<br/>.
+   **Sex** - (Male/Female) <br/>.
+   **SmokingStatus** - In these three type of labels :- Currently_Smoking,Ex_Smokers, Never_smoked <br/>.
+
+show how the FVC is decay wrt to week
+
+# AIM
+Predict Lungs Function Decline based on using  output of a spirometer and CT scan.
+code to import dicom file.....
+# Lung_Segmentation
+Explain with Images and code
+
 
 
