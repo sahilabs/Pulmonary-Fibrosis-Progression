@@ -53,7 +53,15 @@ show how the FVC is decay wrt to week
 Predict Lungs Function Decline based on using  output of a spirometer and CT scan.
 code to import dicom file.....
 # Lung_Segmentation
-Explain with Images and code
-
+```python
+ID='ID00210637202257228694086'
+path='/kaggle/input/osic-pulmonary-fibrosis-progression/train/'+ID
+slices = [pydicom.dcmread(path + '/' + s) for s in os.listdir(path)]
+slices=np.array(slices)
+loc=[s.InstanceNumber for s in slices]
+slices=slices[np.argsort(loc)]
+filename=[s for s in os.listdir(path)]
+pixel_array=[s.pixel_array for s in slices]
+```
 
 
