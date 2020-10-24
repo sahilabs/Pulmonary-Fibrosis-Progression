@@ -4,8 +4,8 @@
 * [Pulmonary-Fibrosis-Progression](#Pulmonary-Fibrosis-Progression)
 * [Symptoms](#Symptoms)
 * [Motivation](#Motivation)
-* [DATA].(#DATA)
-  * .[CT_Scan].(#CT_Scan)
+* [DATA](#DATA)
+  * [CT_Scan](#CT_Scan)
 * [Overview](#overview)
 
 ## Pulmonary-Fibrosis-Progression
