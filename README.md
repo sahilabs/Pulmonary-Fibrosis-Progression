@@ -71,5 +71,14 @@ for p in pixel_array[[8,11,12,14]]:
 <p align="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png">
 </p>
-https://github.com/sahilabs/Pulmonary-Fibrosis-Progression
+<p align="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2.png">
+</p>
+<p align="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png">
+</p>
+<p align="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png">
+</p>
+
 
