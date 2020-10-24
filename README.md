@@ -6,7 +6,7 @@
 * [Motivation](#Motivation)
 * [DATA](#DATA)
   * [CT_Scan](#CT_Scan)
-  * [TABULAR_DATA (Measuring_FVC)](#TABULAR_DATA (Measuring_FVC))
+  * [TABULAR_DATA(Measuring_FVC)](#TABULAR_DATA(Measuring_FVC))
    * [Attributes](#Attributes)
  requirement
  library installation
@@ -31,13 +31,13 @@ To diagnose your condition, your doctor may review your medical and family histo
 and conduct a physical exam. During the physical exam, your doctor will use a stethoscope to listen carefully to your lungs while you breathe. He or she may also suggest one or more of the following tests such as Chest X-ray,Computerized tomography (CT) scan,Echocardiogram.but doctors aren’t easily able to tell where an individual may fall on that spectrum.**Till Now there is no Direct Diagnosis for the  Pulmonary Fibrosis** .
 
 ## DATA
-## CT_SCAN
- Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
- 
-## TABULAR_DATA (Measuring_FVC)
- A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
- Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
-## Attribute
+ ## CT_SCAN
+  Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
+
+ ## TABULAR_DATA(Measuring_FVC)
+  A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
+  Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
+ ## Attribute
 **Patient**- a unique Id for each patient (also the name of the patient's DICOM folder)
 **Weeks**- the relative number of weeks pre/post the baseline CT (may be negative)
 **FVC** - the recorded lung capacity in ml (through Spirometer)
