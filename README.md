@@ -1,6 +1,6 @@
 # Pulmonary-Fibrosis-Progression
 
-## Table of Content
+## Table of Contentss
 * [Pulmonary-Fibrosis-Progression](#Pulmonary-Fibrosis-Progression)
 * [Symptoms](#Symptoms)
 * [Motivation](#Motivation)
@@ -69,7 +69,7 @@ for p in pixel_array[[8,11,12,14]]:
 ```
 <br/>
 <p align="left">
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/tree/main/Image/1.png">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png">
 </p>
 https://github.com/sahilabs/Pulmonary-Fibrosis-Progression
 
