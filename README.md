@@ -62,6 +62,20 @@ loc=[s.InstanceNumber for s in slices]
 slices=slices[np.argsort(loc)]
 filename=[s for s in os.listdir(path)]
 pixel_array=[s.pixel_array for s in slices]
+#Take some random CT Images for demonstration
+for p in pixel_array[[8,11,12,14]]:
+    plt.imshow(p,cmap='gray')
+    plt.show()
 ```
-
-
+<br/>
+<p align="left">
+  <img src='https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/tree/main/Image/1.png'>
+</p>
+<p align="left">
+  <img src='https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/tree/main/Image/2.png'>
+</p>
+<p align="left">
+  <img src='https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/tree/main/Image/3.png'>
+</p><p align="left">
+  <img src='https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/tree/main/Image/4.png'>
+</p>
