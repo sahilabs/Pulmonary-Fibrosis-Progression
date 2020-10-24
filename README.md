@@ -6,7 +6,18 @@
 * [Motivation](#Motivation)
 * [DATA](#DATA)
   * [CT_Scan](#CT_Scan)
-  * [Spirometer](#Spirometer)
+  * [TABULAR_DATA](#TABULAR_DATA)
+ requirement
+ library installation
+ 
+ segmentation
+ sampler
+ feature extraction
+ feature engineering
+ metric
+ confidence
+ model
+ Loss
 * [Overview](#overview)
 
 ## Pulmonary-Fibrosis-Progression
@@ -22,7 +33,7 @@ and conduct a physical exam. During the physical exam, your doctor will use a st
 ## CT_SCAN
  Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
  
-## Spirometer
+## TABULAR_DATA(Measuring_FVC)
  A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
  Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled
 
