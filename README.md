@@ -6,6 +6,7 @@
 * [Motivation](#Motivation)
 * [DATA](#DATA)
   * [CT_Scan](#CT_Scan)
+  * [Spirometer](#Spirometer)
 * [Overview](#overview)
 
 ## Pulmonary-Fibrosis-Progression
@@ -19,7 +20,10 @@ and conduct a physical exam. During the physical exam, your doctor will use a st
 
 ## DATA
 ## CT_SCAN
-you are provided with a baseline chest CT scan and associated clinical information for a set of patients. A patient has an image acquired at time Week = 0 and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
-
+ Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
+ 
+## Spirometer
+ A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
+ Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled
 
 
