@@ -6,7 +6,7 @@
 * [Motivation](#Motivation)
 * [DATA](#DATA)
   * [CT_Scan](#CT_Scan)
-  * [TABULAR_DATA)](#TABULAR_DATA)
+  * [TABULAR_DATA](#TABULAR_DATA)
    * [Attributes](#Attributes)
  requirement
  library installation
