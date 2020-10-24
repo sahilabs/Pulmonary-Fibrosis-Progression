@@ -37,7 +37,7 @@ and conduct a physical exam. During the physical exam, your doctor will use a st
  ## TABULAR_DATA  (Measuring_FVC)
   A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
   Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
- ## Attribute
+ ## Attributes
 **Patient**- a unique Id for each patient (also the name of the patient's DICOM folder)
 **Weeks**- the relative number of weeks pre/post the baseline CT (may be negative)
 **FVC** - the recorded lung capacity in ml (through Spirometer)
