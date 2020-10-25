@@ -75,7 +75,8 @@ These are some Random CT Scan
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
-add image hu value...
+add image hu value...</br>
+
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
 winCenter=slices[0].WindowCenter 
@@ -135,7 +136,6 @@ lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 </p>
 
 ```python
-
 lungs = scipy.ndimage.binary_fill_holes(lungs)#binary_fill_holes function, which uses mathematical morphology to fill the holes.
 lungs = morphology.dilation(lungs,np.ones([5,5]))
 ```
@@ -148,7 +148,6 @@ lungs = morphology.dilation(lungs,np.ones([5,5]))
 </p>
 
 ```python
-
 labels = np.array(measure.label(lungs,connectivity=2))#Measure image regions to filter small objects
 lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed. Top and bottom 60 pixels are removed
 label=np.unique(labels)
