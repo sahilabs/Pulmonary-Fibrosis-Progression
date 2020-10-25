@@ -110,8 +110,9 @@ lungs = median(clear_border(binary))
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Median_Blur.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Median_Blur.png" width="200" />
 </p>
+
 ```python
-   lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
+lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 ```
 <br/>
 <p float="left">
@@ -120,9 +121,10 @@ lungs = median(clear_border(binary))
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_binary_closing.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_binary_closing.png" width="200" />
 </p>
+
 ```python
-        lungs = binary_fill_holes(lungs)
-        lungs = morphology.dilation(lungs,np.ones([5,5]))
+lungs = binary_fill_holes(lungs)
+lungs = morphology.dilation(lungs,np.ones([5,5]))
 ```
 <br/>
 <p float="left">
@@ -131,16 +133,17 @@ lungs = median(clear_border(binary))
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Binary_Fill_HoleDilation.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Binary_Fill_HoleDilation.png" width="200" />
 </p>
+
 ```python
-        labels = np.array(measure.label(lungs,connectivity=2))
-        lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed
-        label=np.unique(labels)
-        mask=np.zeros(np.array(p).shape)
-        for l in label:
-            msk=np.where(labels==l,1,0)
-            if(( l in lbl_exclude) | (np.sum(msk)<100)|(np.abs(np.mean(msk*p))<1)):
-                continue;
-            mask=np.add(mask,np.where(labels==l,1,0))
+labels = np.array(measure.label(lungs,connectivity=2))
+lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed
+label=np.unique(labels)
+mask=np.zeros(np.array(p).shape)
+for l in label:
+    msk=np.where(labels==l,1,0)
+    if(( l in lbl_exclude) | (np.sum(msk)<100)|(np.abs(np.mean(msk*p))<1)):
+        continue;
+    mask=np.add(mask,np.where(labels==l,1,0))
 ```
 <br/>
 <p float="left">
