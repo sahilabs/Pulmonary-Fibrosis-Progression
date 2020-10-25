@@ -117,10 +117,10 @@ lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 ```
 <br/>
 <p float="left">
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_binary_closing.png" width="200" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_binary_closing.png" width="200" /> 
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_binary_closing.png" width="200" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_binary_closing.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary_Closing.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_Binary_Closing.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Binary_Closing.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Binary_Closing.png" width="200" />
 </p>
 
 ```python
