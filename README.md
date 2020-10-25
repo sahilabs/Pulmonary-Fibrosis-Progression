@@ -69,10 +69,83 @@ for p in pixel_array[[8,11,12,14]]:
 ```
 <br/>
 <p float="left">
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png" width="100" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2.png" width="100" /> 
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png" width="100" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="100" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
+</p>
+```python
+winCenter=slices[0].WindowCenter
+winWidth=slices[0].WindowWidth
+RI=slices[0].RescaleIntercept
+RS=slices[0].RescaleSlope
+yMin = (winCenter - 0.5 * np.abs(winWidth))
+yMax = (winCenter + 0.5 * np.abs(winWidth))
+yMin = (yMin-RI)/RS
+yMax = (yMax-RI)/RS
+t=np.array(pixel_array).ravel()#here Pixel array  
+t=t[(t>=yMin)&(t<=yMax)]
+kmeans=KMeans(n_clusters=2, random_state=0).fit(t.reshape((-1,1)))
+for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
+        pred=kmeans.predict(np.array(p).reshape(-1,1))
+        pred=pred.reshape(np.array(p).shape)
+        start=pred[0][0]
+        binary=np.where(pred==start,1,0)
+```
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_binary.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_binary.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_binary.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_binary.png" width="200" />
 </p>
 
-ss
+```python
+lungs = median(clear_border(binary))
+```
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Median_Blur.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_Median_Blur.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Median_Blur.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Median_Blur.png" width="200" />
+</p>
+```python
+   lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
+```
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_binary_closing.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_binary_closing.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_binary_closing.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_binary_closing.png" width="200" />
+</p>
+```python
+        lungs = binary_fill_holes(lungs)
+        lungs = morphology.dilation(lungs,np.ones([5,5]))
+```
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary_Fill_HoleDilation.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_Binary_Fill_HoleDilation.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Binary_Fill_HoleDilation.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Binary_Fill_HoleDilation.png" width="200" />
+</p>
+```python
+        labels = np.array(measure.label(lungs,connectivity=2))
+        lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed
+        label=np.unique(labels)
+        mask=np.zeros(np.array(p).shape)
+        for l in label:
+            msk=np.where(labels==l,1,0)
+            if(( l in lbl_exclude) | (np.sum(msk)<100)|(np.abs(np.mean(msk*p))<1)):
+                continue;
+            mask=np.add(mask,np.where(labels==l,1,0))
+```
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Label_Connectivity.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_Label_Connectivity.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Label_Connectivity.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Label_Connectivity.png" width="200" />
+</p>
