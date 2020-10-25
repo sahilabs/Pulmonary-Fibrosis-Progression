@@ -87,10 +87,10 @@ t=np.array(pixel_array).ravel()#here Pixel array
 t=t[(t>=yMin)&(t<=yMax)]
 kmeans=KMeans(n_clusters=2, random_state=0).fit(t.reshape((-1,1)))
 for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
-        pred=kmeans.predict(np.array(p).reshape(-1,1))
-        pred=pred.reshape(np.array(p).shape)
-        start=pred[0][0]
-        binary=np.where(pred==start,1,0)
+ pred=kmeans.predict(np.array(p).reshape(-1,1))
+ pred=pred.reshape(np.array(p).shape)
+ start=pred[0][0]
+ binary=np.where(pred==start,1,0)
 ```
 <br/>
 <p float="left">
