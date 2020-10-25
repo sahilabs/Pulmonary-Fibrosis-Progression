@@ -54,7 +54,7 @@ Predict Lungs Function Decline based on using  output of a spirometer and CT sca
 code to import dicom file.....
 # Lung_Segmentation
 ```python
-ID='ID00210637202257228694086'
+ID='ID00210637202257228694086' #Unique Patient ID
 path='/kaggle/input/osic-pulmonary-fibrosis-progression/train/'+ID
 slices = [pydicom.dcmread(path + '/' + s) for s in os.listdir(path)]
 slices=np.array(slices)
@@ -67,6 +67,7 @@ for p in pixel_array[[8,11,12,14]]:
     plt.imshow(p,cmap='gray')
     plt.show()
 ```
+These are some Random CT Scan  
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png" width="200" />
@@ -74,25 +75,32 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
-
+add image hu value...
 ```python
-winCenter=slices[0].WindowCenter
+#Convert image(pixel_array) to HU(Hounsfield Unit) 
+winCenter=slices[0].WindowCenter 
 winWidth=slices[0].WindowWidth
 RI=slices[0].RescaleIntercept
 RS=slices[0].RescaleSlope
 yMin = (winCenter - 0.5 * np.abs(winWidth))
 yMax = (winCenter + 0.5 * np.abs(winWidth))
+#converting all ct image to HU values take a lot computational, so choose work in reverse manner
 yMin = (yMin-RI)/RS
 yMax = (yMax-RI)/RS
-t=np.array(pixel_array).ravel()#here Pixel array  
+t=np.array(pixel_array).ravel()  
 t=t[(t>=yMin)&(t<=yMax)]
+#there are range of HU Values see above Table 
+#K-means seprates different range of HU value
 kmeans=KMeans(n_clusters=2, random_state=0).fit(t.reshape((-1,1)))
 for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
-    pred=kmeans.predict(np.array(p).reshape(-1,1))
+    pred=kmeans.predict(np.array(p).reshape(-1,1))#kmeans predicts for two label[0,1]
     pred=pred.reshape(np.array(p).shape)
     start=pred[0][0]
     binary=np.where(pred==start,1,0)
+    plt.imshow(binary)
+    plt.show()
  ```
+## Binary Images
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary.png" width="200" />
@@ -102,6 +110,7 @@ for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
 </p>
 
 ```python
+#Median Blur with clear border(Clear objects connected to the label image border)
 lungs = median(clear_border(binary))
 ```
 <br/>
@@ -113,6 +122,8 @@ lungs = median(clear_border(binary))
 </p>
 
 ```python
+#Closing is a mathematical morphology operation that consists in the succession of a dilation and an erosion of the input with the same structuring element.
+#Closing therefore fills holes smaller than the structuring element.
 lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 ```
 <br/>
@@ -124,7 +135,8 @@ lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 </p>
 
 ```python
-lungs = binary_fill_holes(lungs)
+
+lungs = scipy.ndimage.binary_fill_holes(lungs)#binary_fill_holes function, which uses mathematical morphology to fill the holes.
 lungs = morphology.dilation(lungs,np.ones([5,5]))
 ```
 <br/>
@@ -136,8 +148,9 @@ lungs = morphology.dilation(lungs,np.ones([5,5]))
 </p>
 
 ```python
-labels = np.array(measure.label(lungs,connectivity=2))
-lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed
+
+labels = np.array(measure.label(lungs,connectivity=2))#Measure image regions to filter small objects
+lbl_exclude=np.unique([labels[0:60,:],labels[-60:,:]])#there is some ct images that contains table ct scan, so its removed. Top and bottom 60 pixels are removed
 label=np.unique(labels)
 mask=np.zeros(np.array(p).shape)
 for l in label:
@@ -153,3 +166,12 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Label_Connectivity.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Label_Connectivity.png" width="200" />
 </p>
+## Finally Segmented Image
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_segment.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_segment.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_segment.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_segment.png" width="200" />
+</p>
+# ......CONTINUE
