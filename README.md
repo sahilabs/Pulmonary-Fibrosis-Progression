@@ -114,6 +114,7 @@ for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
 #Median Blur with clear border(Clear objects connected to the label image border)
 lungs = median(clear_border(binary))
 ```
+## Median Blur
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Median_Blur.png" width="200" />
@@ -127,6 +128,7 @@ lungs = median(clear_border(binary))
 #Closing therefore fills holes smaller than the structuring element.
 lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 ```
+## Binary Closing
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary_Closing.png" width="200" />
@@ -139,6 +141,7 @@ lungs = morphology.binary_closing(lungs, selem=morphology.disk(7))
 lungs = scipy.ndimage.binary_fill_holes(lungs)#binary_fill_holes function, which uses mathematical morphology to fill the holes.
 lungs = morphology.dilation(lungs,np.ones([5,5]))
 ```
+## Binary_Fill_Holes and Dilation 
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary_Fill_HoleDilation.png" width="200" />
@@ -158,6 +161,7 @@ for l in label:
         continue;
     mask=np.add(mask,np.where(labels==l,1,0))
 ```
+## Label Connectivity
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Label_Connectivity.png" width="200" />
