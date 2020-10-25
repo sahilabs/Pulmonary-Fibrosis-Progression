@@ -95,10 +95,10 @@ for i,p in enumerate(pixel_array[[[8,11,12,14]]]):
  ```
 <br/>
 <p float="left">
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_binary.png" width="200" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_binary.png" width="200" /> 
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_binary.png" width="200" />
-  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_binary.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_Binary.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/2_Binary.png" width="200" /> 
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Binary.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Binary.png" width="200" />
 </p>
 
 ```python
