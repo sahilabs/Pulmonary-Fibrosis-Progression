@@ -13,8 +13,8 @@
  requirement
  library installation
  * [Lung_Segmentation](#Lung_Segmentation)
+ * [Feature_Extraction].(#Feature_Extraction)
  sampler
- feature extraction
  feature engineering
  metric
  confidence
@@ -53,6 +53,7 @@ show how the FVC is decay wrt to week
 Predict Lungs Function Decline based on using  output of a spirometer and CT scan.
 code to import dicom file.....
 # Lung_Segmentation
+## Step by Step
 ```python
 ID='ID00210637202257228694086' #Unique Patient ID
 path='/kaggle/input/osic-pulmonary-fibrosis-progression/train/'+ID
@@ -67,7 +68,7 @@ for p in pixel_array[[8,11,12,14]]:
     plt.imshow(p,cmap='gray')
     plt.show()
 ```
-These are some Random CT Scan  
+## These are some Random CT Scan  
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1.png" width="200" />
@@ -177,4 +178,19 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_segment.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_segment.png" width="200" />
 </p>
-# ......CONTINUE
+# Feature_Extraction
+## Split the Segmentated Images
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/l1.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/r1.png" width="200" /> 
+</p>
+<br/>
+<p float="left">
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/l2.png" width="200" />
+  <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/r2.png" width="200" />
+</p>
+**Area** :
+**Mean** :
+**Skew** :
+**Kurt** :
