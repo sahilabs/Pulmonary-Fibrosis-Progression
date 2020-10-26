@@ -170,7 +170,7 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3_Label_Connectivity.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Label_Connectivity.png" width="200" />
 </p>
-## Finally Segmented Image
+## FinallySegmentedImage
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_segment.png" width="200" />
@@ -179,6 +179,7 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_segment.png" width="200" />
 </p>
 # Feature_Extraction
+<br/>
 ## Split the Segmentated Images
 <br/>
 <p float="left">
