@@ -10,16 +10,15 @@
   * [TABULAR_DATA](#TABULAR_DATA)
    * [Attributes](#Attributes)
 * [AIM](#AIM)
- requirement
- library installation
+* [Requirement](#Requirement)
  * [Lung_Segmentation](#Lung_Segmentation)
  * [Feature_Extraction].(#Feature_Extraction)
- sampler
- feature engineering
- metric
- confidence
- model
- Loss
+* [Sampler](#Sampler)
+* [Feature_Engineering](#Feature_Engineering)
+* [Metric](#Metric)
+* [Confidence](#confidence)
+* [Model](#Model)
+* [Loss](#Loss)
 * [Overview](#overview)
 
 ## Pulmonary-Fibrosis-Progression
@@ -193,7 +192,15 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/l2.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/r2.png" width="200" />
 </p>
+<br/>
 **Area** :
 **Mean** :
 **Skew** :
 **Kurt** :
+
+# Sampler 
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png" width="200" />
+<br/>
+***Above the figure shows CT images Per Patient***
+**Why Sampler ?:** By observing on Average CT Image of Patient  is around 400 which is huge to compute and many CT Scan Image are Almost Similar and it's due to slice length is  very small which makes the layer of image to be Similar. So it's required to creat Sampler which can extract different type of Images.</br>
+
