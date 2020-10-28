@@ -200,8 +200,31 @@ for l in label:
 # Sampler
 <br/>
 <p>
-<img align="left" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png"  width="200" />
+<img align="left" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png"  height="200" />
 </p>
 <br/>
+
+
 ***Above the figure shows CT images Per Patient***<br/>
 **Why Sampler ?:**  By observing on Average CT Image of Patient  is around 400 which is huge to compute and many CT Scan Image are Almost Similar and it's due to slice length is  very small which makes the layer of image to be Similar. So it's required to creat Sampler which can extract different type of Images.</br>
+## Find N_most_different Image
+```python
+for i in range(len(pixel_array)-1):
+    curr=pixel_array[i]
+    nxt=pixel_array[i+1]
+    tmp=np.abs(np.subtract(curr,nxt))# Find differnece
+    curr=np.abs(curr)+1
+    tmp=np.divide(tmp,curr)#DeltaX/X
+    tmp=np.sum(tmp)
+    change.append([i,tmp])
+```
+### Now we got change in Images
+```python
+change=np.array(change)
+change[:,1]=change[:,1]/(nxt.shape[0]*nxt.shape[1])#Normalize
+pixel_array=np.array(pixel_array)
+ind_=sorted(np.argsort(np.gradient(change[:,1]*100))[::-1][0:n_size])#select best n_size
+pixel_array=pixel_array[ind_]
+slices=slices[ind_]
+```
+### Select Best_n_size Images
