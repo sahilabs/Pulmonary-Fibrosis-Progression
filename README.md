@@ -199,8 +199,8 @@ for l in label:
 
 # Sampler
 <br/>
-<p float="left">
-<img align="left" width="200" height="100" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png" />
+<p>
+<img align="left" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png"  width="200" />
 </p>
 <br/>
 ***Above the figure shows CT images Per Patient***<br/>
