@@ -1,5 +1,5 @@
-def Sampler(n_size=50):
-  if(slices.shape[0]>50):
+def Sampler(slices,pixel_array,n_size=50):
+  if(pixel_array.shape[0]>n_size):
           change=[]
           for i in range(len(pixel_array)-1):
               curr=pixel_array[i]
@@ -16,5 +16,4 @@ def Sampler(n_size=50):
           pixel_array=pixel_array[ind_]
           slices=slices[ind_]
           del ind_,change,curr,nxt,tmp
-   else:
-          pass;
+    return slices,pixel_array
