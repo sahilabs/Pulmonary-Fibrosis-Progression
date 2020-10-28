@@ -185,6 +185,11 @@ for l in label:
 </p>
 <br/>
 
+
+
+
+
+
 ***Above the figure shows CT images Per Patient***<br/>
 # Sampler
 
@@ -211,7 +216,7 @@ pixel_array=pixel_array[ind_]
 slices=slices[ind_]
 ```
 # Feature_Extraction
-## Split the Segmentated Images
+## Split the Segmented Images
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/l1.png" width="200" />
@@ -223,10 +228,11 @@ slices=slices[ind_]
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/r2.png" width="200" />
 </p>
 <br/>
-**Area** :<br/>
-**Mean** :<br/>
-**Skew** :<br/>
-**Kurt** :<br/>
+### Features are extracted seprately for the Split Images 
+**Area** :Projecting the along the axis of the table then find the area of Lungs<br/>
+**Mean** :Mean of Lungs **Normal Lungs  − 1024 to − 500** <br/>
+**Skew** :skewness is a measure of the asymmetry of the probability for the normal lungs **normal lung is skewed to left** when fibrosis occurs the HU value shift -900HU to -600HU <br/>
+**Kurt** :measure of the tailedness **the peak of the low attenuation pixels is much much lower (since we have more higher attenuating areas instead of it).** <br/>
 <br/>
 
-
+## Correlation
