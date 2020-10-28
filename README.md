@@ -12,7 +12,7 @@
 * [AIM](#AIM)
 * [Requirement](#Requirement)
  * [Lung_Segmentation](#Lung_Segmentation)
- * [Feature_Extraction].(#Feature_Extraction)
+ * [Feature_Extraction](#Feature_Extraction)
 * [Sampler](#Sampler)
 * [Feature_Engineering](#Feature_Engineering)
 * [Metric](#Metric)
@@ -200,10 +200,8 @@ for l in label:
 # Sampler
 <br/>
 <p float="left">
-<img align="left" width="200" height="200" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png" />
+<img align="left" width="200" height="100" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png" />
 </p>
 <br/>
 ***Above the figure shows CT images Per Patient***<br/>
 **Why Sampler ?:**  By observing on Average CT Image of Patient  is around 400 which is huge to compute and many CT Scan Image are Almost Similar and it's due to slice length is  very small which makes the layer of image to be Similar. So it's required to creat Sampler which can extract different type of Images.</br>
-
-22221211
