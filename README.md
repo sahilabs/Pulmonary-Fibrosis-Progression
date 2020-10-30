@@ -42,7 +42,7 @@ Inser ct scan image,meta data
    **Weeks**- the relative number of weeks pre/post the baseline CT (may be negative).<br/>
    **FVC** - the recorded lung capacity in ml (through Spirometer).<br/>
    **Percent**- a computed field which approximates the patient's FVC as a percent of the typical FVC for a person of similar characteristics.<br/>
-   **Age** - Age of the Patient<br/>.
+   **Age** - Age of the Patient.<br/>
    **Sex** - (Male/Female)<br/>
    **SmokingStatus** - In these three type of labels :- Currently_Smoking,Ex_Smokers, Never_smoked.<br/>
 
@@ -75,8 +75,10 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/3.png" width="200" />
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
-add image hu value...</br>
 
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index" width="200" />
+</br>
+</br>
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
 winCenter=slices[0].WindowCenter 
@@ -188,7 +190,10 @@ for l in label:
 <br/>
 <br/>
 <br/>
-<br/>***Above the figure shows CT images Per Patient***<br/>
+<br/>
+
+***Above the figure shows CT images Per Patient***
+<br/>
 # Sampler
 <br/>
 **Why Sampler ?:**  By observing on Average CT Image of Patient  is around 400 which is huge to compute and many CT Scan Image are Almost Similar and it's due to slice length is  very small which makes the layer of image to be Similar. So it's required to creat Sampler which can extract different type of Images.</br>
@@ -227,6 +232,8 @@ for l in label:
 <br/>
 <br/>
 **Features are extracted seprately for the Split Images** <br/>
+</br>
+</br>
 **Area** :Projecting the along the axis of the table then find the area of Lungs.<br/>
 **Mean** :Mean of Lungs **Normal Lungs  − 1024 to − 500** .<br/>
 **Skew** :skewness is a measure of the asymmetry of the probability for the normal lungs **normal lung is skewed to left** when fibrosis occurs the HU value shift -900HU to -600HU. <br/>
