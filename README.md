@@ -170,7 +170,11 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4_Label_Connectivity.png" width="200" />
 </p>
 <br/>
-  ## FinallySegmentedImage
+<br/>
+<br/>
+
+
+## FinallySegmentedImage
 <br/>
 <p float="left">
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/1_segment.png" width="200" />
@@ -184,12 +188,12 @@ for l in label:
 <img align="left" src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/No_ctscan_PerPatient.png"  height="200" />
 </p>
 <br/>
-
-
-
-
-
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 ***Above the figure shows CT images Per Patient***<br/>
 # Sampler
 
@@ -227,10 +231,11 @@ for l in label:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/r2.png" width="200" />
 </p>
 <br/>
-### Features are extracted seprately for the Split Images 
-**Area** :Projecting the along the axis of the table then find the area of Lungs<br/>
-**Mean** :Mean of Lungs **Normal Lungs  − 1024 to − 500** <br/>
-**Skew** :skewness is a measure of the asymmetry of the probability for the normal lungs **normal lung is skewed to left** when fibrosis occurs the HU value shift -900HU to -600HU <br/>
+<br/>
+**Features are extracted seprately for the Split Images** <br/>
+**Area** :Projecting the along the axis of the table then find the area of Lungs.<br/>
+**Mean** :Mean of Lungs **Normal Lungs  − 1024 to − 500** .<br/>
+**Skew** :skewness is a measure of the asymmetry of the probability for the normal lungs **normal lung is skewed to left** when fibrosis occurs the HU value shift -900HU to -600HU. <br/>
 **Kurt** :measure of the tailedness **the peak of the low attenuation pixels is much much lower (since we have more higher attenuating areas instead of it).** <br/>
 <br/>
 
