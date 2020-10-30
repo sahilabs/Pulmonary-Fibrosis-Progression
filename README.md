@@ -76,7 +76,7 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
 
-<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index" width="200" />
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="200" />
 </br>
 </br>
 ```python
