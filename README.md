@@ -76,8 +76,7 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
 
-<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="200" />
-</br>
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="200"  height="200"/></br>  
 </br>
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
@@ -231,13 +230,14 @@ for l in label:
 </p>
 <br/>
 <br/>
-**Features are extracted seprately for the Split Images** <br/>
-</br>
-</br>
+**Features are extracted seprately for the Split Images** <br/>  
+</br>  
+</br>  
+
 **Area** :Projecting the along the axis of the table then find the area of Lungs.<br/>
 **Mean** :Mean of Lungs **Normal Lungs  − 1024 to − 500** .<br/>
 **Skew** :skewness is a measure of the asymmetry of the probability for the normal lungs **normal lung is skewed to left** when fibrosis occurs the HU value shift -900HU to -600HU. <br/>
 **Kurt** :measure of the tailedness **the peak of the low attenuation pixels is much much lower (since we have more higher attenuating areas instead of it).** <br/>
 <br/>
 
-## Correlation
+## Correlation_as
