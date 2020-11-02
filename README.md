@@ -19,7 +19,7 @@
 * [Confidence](#confidence)
 * [Model](#Model)
 * [Loss](#Loss)
-* [Overview](#overview)
+* [Overview](#Overview)
 
 ## Pulmonary-Fibrosis-Progression
 Pulmonary, meaning lung, and fibrosis, meaning scar tissue.Pulmonary fibrosis is a condition in which the lungs become scarred over time and The scarring of lung tissue makes it thick and stiff. As the lung tissue thickens, it becomes increasingly difficult for the body to transfer oxygen from the lungs into the bloodstream. As a result, the brain and other organs may not receive enough oxygen. Scarring may also increase the risk of lung cancer.
@@ -76,7 +76,7 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
 
-<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="200"  height="200"/></br>  
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="400"  height="200"/></br>  
 </br>
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
