@@ -76,8 +76,13 @@ for p in pixel_array[[8,11,12,14]]:
   <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/4.png" width="200" />
 </p>
 
-<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="400"  height="200"/></br>  
+<img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/HU_value_Index.png" width="400"  height="150"/></br>  
 </br>
+
+
+The Hounsfield unit (HU) is a relative quantitative measurement of radio density used by radiologists in the interpretation of computed tomography (CT) images</br>  
+
+s
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
 winCenter=slices[0].WindowCenter 
@@ -190,6 +195,9 @@ for l in label:
 <br/>
 <br/>
 <br/>
+
+
+
 
 ***Above the figure shows CT images Per Patient***
 <br/>
