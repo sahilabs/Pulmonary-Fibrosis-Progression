@@ -1,5 +1,5 @@
 # Pulmonary-Fibrosis-Progression
-
+mm
 ## Table of Contents
 * [Pulmonary-Fibrosis-Progression](#Pulmonary-Fibrosis-Progression)
 * [Symptoms](#Symptoms)
@@ -252,6 +252,7 @@ for l in label:
 <br/>
 
 ## Feature Engineer
-**STD_FVC** :- The Percent columns is calculated using reference  FVC of same body character of person and this refernce FVC can be calculated by multiplying Percent and FVC columns</br>   
-**Base WeeK** :- The Base Week is the starting week in dataset</br>  
+**STD_FVC** :- The Percent columns is calculated using reference  FVC of same body character of person and this refernce FVC can be calculated by multiplying Percent and FVC columns</br>
+**Base WeeK** :- The Base Week is the starting week in dataset</br>
 **Base FVC and Base Percent** :-  The Base FVC is the starting FVC and Percent in dataset</br>  
+
