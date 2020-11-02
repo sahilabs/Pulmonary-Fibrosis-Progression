@@ -199,11 +199,14 @@ for l in label:
 
 
 
-***Above the figure shows CT images Per Patient***
+***The figure shows CT images Per Patient***
 <br/>
 # Sampler
-<br/>
+<br/>  
+
 **Why Sampler ?:**  By observing on Average CT Image of Patient  is around 400 which is huge to compute and many CT Scan Image are Almost Similar and it's due to slice length is  very small which makes the layer of image to be Similar. So it's required to creat Sampler which can extract different type of Images.</br>
+  
+  
   ## Find N_most_different Image
   ```python
   for i in range(len(pixel_array)-1):
@@ -248,4 +251,7 @@ for l in label:
 **Kurt** :measure of the tailedness **the peak of the low attenuation pixels is much much lower (since we have more higher attenuating areas instead of it).** <br/>
 <br/>
 
-## Correlation_as
+## Feature Engineer
+**STD_FVC** :- The Percent columns is calculated using reference  FVC of same body character of person and this refernce FVC can be calculated by multiplying Percent and FVC columns</br>   
+**Base WeeK** :- The Base Week is the starting week in dataset</br>  
+**Base FVC and Base Percent** :-  The Base FVC is the starting FVC and Percent in dataset</br>  
