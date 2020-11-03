@@ -32,7 +32,7 @@ and conduct a physical exam. During the physical exam, your doctor will use a st
 ## DATA
  ## CT_SCAN
   Baseline chest CT scan of patients is provided. CT Scan is in Dicom file(Digital Imaging and Communications in Medicine).
-Inser ct scan image,meta data
+  write the use of ct scan add some anoated images
  ## TABULAR_DATA  (Measuring_FVC)
   A patient has an image acquired at time Week = 0(CT_scan) and has numerous follow up visits over the course of approximately 1-2 years, at which time their FVC is measured.
   Lung function is assessed based on output from a spirometer, which measures the forced vital capacity (FVC), i.e. the volume of air exhaled.
@@ -81,7 +81,7 @@ for p in pixel_array[[8,11,12,14]]:
 
 The Hounsfield unit (HU) is a relative quantitative measurement of radio density used by radiologists in the interpretation of computed tomography (CT) images</br>  
 
-s
+
 ```python
 #Convert image(pixel_array) to HU(Hounsfield Unit) 
 winCenter=slices[0].WindowCenter 
