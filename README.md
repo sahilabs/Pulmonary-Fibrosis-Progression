@@ -1,5 +1,4 @@
 # Pulmonary-Fibrosis-Progression
-mm
 ## Table of Contents
 * [Pulmonary-Fibrosis-Progression](#Pulmonary-Fibrosis-Progression)
 * [Symptoms](#Symptoms)
@@ -19,7 +18,7 @@ mm
 * [Confidence](#confidence)
 * [Model](#Model)
 * [Loss](#Loss)
-* [Overview](#Overview)
+* [Model_Performance](#Model_Performance)
 
 ## Pulmonary-Fibrosis-Progression
 Pulmonary, meaning lung, and fibrosis, meaning scar tissue.Pulmonary fibrosis is a condition in which the lungs become scarred over time and The scarring of lung tissue makes it thick and stiff. As the lung tissue thickens, it becomes increasingly difficult for the body to transfer oxygen from the lungs into the bloodstream. As a result, the brain and other organs may not receive enough oxygen. Scarring may also increase the risk of lung cancer.
@@ -256,3 +255,70 @@ for l in label:
 **Base WeeK** :- The Base Week is the starting week in dataset</br>
 **Base FVC and Base Percent** :-  The Base FVC is the starting FVC and Percent in dataset</br>  
 
+# Metric
+This metric is evaluated on a modified version of the Laplace Log Likelihood. In medical applications, it is useful to evaluate a model's confidence in its decisions. Accordingly, the metric is designed to reflect both the accuracy and certainty of each prediction.
+```
+σclipped=max(σ,70),
+Δ=min(|FVCtrue−FVCpredicted|,1000),
+metric=−2√Δ/σclipped−ln(2√σclipped).
+```
+# Model
+```python
+def model(Drop_1,Drop_2,Drop_3,_lambda,Quantile_1,Quantile_3,lr=0.01):
+    Input=layers.Input((len(features),))
+    x=layers.BatchNormalization()(Input)
+    x=tfa.layers.WeightNormalization(layers.Dense(128,activation='elu'))(x)
+    x=layers.BatchNormalization()(x)
+    x=layers.Dropout(0.4)(x)
+    x=tfa.layers.WeightNormalization(layers.Dense(64,activation='elu'))(x)
+    x=layers.BatchNormalization()(x)
+    x=layers.Dropout(0.3)(x)
+    x=tfa.layers.WeightNormalization(layers.Dense(32,activation='elu'))(x)
+    x=layers.BatchNormalization()(x)
+    x=layers.Dropout(0.2)(x)
+    x=tfa.layers.WeightNormalization(layers.Dense(16,activation='relu'))(x)
+    x=layers.BatchNormalization()(x)
+    x=layers.Dropout(0.1)(x)
+    pred=layers.Dense(1,activation='relu')(x)
+    model_neural=Models.Model(Input,pred)
+    optimizer=tf.keras.optimizers.Adam(lr=lr)
+    model_neural.compile(loss=loss,optimizer=optimizer,metrics=[abs_error])
+    return model_neural
+```
+# Loss
+```python
+#Quantile Loss
+def metric(y_true,y_pred):
+    sigma_min,max_error_FVC=tf.constant(70,dtype='float32'),tf.constant(1000,dtype='float32')
+    tf.dtypes.cast(y_true,tf.float32)
+    tf.dtypes.cast(y_pred,tf.float32)
+    sigma=y_pred[:,-1]-y_pred[:,0]
+    fvc_pred=y_pred[:,1]
+    sigma_clipped=tf.maximum(sigma,sigma_min)
+    delta=tf.abs(fvc_pred-y_true)
+    delta=tf.minimum(delta,max_error_FVC)
+    sq2 = tf.sqrt( tf.dtypes.cast(2, dtype = tf.float32))
+    metric_ = (delta / sigma_clipped) * sq2 + tf.math.log(sigma_clipped * sq2)
+    return K.mean(metric_)
+    
+def qloss(y_true,y_pred,Quantile_1,Quantile_3):
+    qs=[Quantile_1,0.5,Quantile_3]
+    qs=tf.constant(np.array(qs),dtype=tf.float32)
+    e = y_true - y_pred
+    v = tf.maximum(qs* e, (qs-1) * e)
+    threshold=200
+    v=tf.math.abs(v)
+    if(K.mean(v)<threshold):
+        v=K.mean(v)
+    else:
+        v=tf.math.square(v)
+        v=K.mean(v)
+        v=K.sqrt(v)
+    return v
+
+def mloss(_lambda,Quantile_1,Quantile_3):
+    def loss(y_true, y_pred):
+        return _lambda * qloss(y_true, y_pred,Quantile_1,Quantile_3) + (1 - _lambda) * metric(y_true, y_pred)
+    return loss
+```
+#  Model_Performance
