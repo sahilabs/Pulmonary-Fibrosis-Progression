@@ -355,10 +355,19 @@ Pred_error|148.1
 Exp_error_Full_data|145.23
 
 * Pred_Error : It is modification of Predicted Value,and it done<br/>
-               * First Calculate residual of the Particular Patient Baseline FVC<br/>
-               * add the value residual to predicted value,to get adjused FVC
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) First Calculate residual of the Particular Patient Baseline FVC<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) add the value residual to predicted value,to get adjused FVC
 * Exp_Error : The procedure of Exp Error is same as Pred_Error but in this The Residual Value is Not directly Added insted the value decreased exponentially on moving               away from baseline Week FVC<br/>
 For Example,<br/>
 <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/Pred_EXP_ERROR.png" >
 
 ## Model with Confidence
+Error|Value
+---|---
+train_Score|
+k-fold val_Score|3.80
+MAE_full_data|155.3
+Pred_error|148.1
+Exp_error_Full_data|145.23
+
+hhh
