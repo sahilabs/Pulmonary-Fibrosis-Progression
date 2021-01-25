@@ -362,12 +362,11 @@ For Example,<br/>
 <img src="https://github.com/sahilabs/Pulmonary-Fibrosis-Progression/blob/main/Image/Pred_EXP_ERROR.png" >
 
 ## Model with Confidence
-Error|Value
----|---
-train_Score|
-k-fold val_Score|3.80
-MAE_full_data|155.3
-Pred_error|148.1
-Exp_error_Full_data|145.23
+Type|MAE|Metric
+---|---|---
+MAE_full_data|166.34|6.92
+MAE_full_data|166.34|6.83(after multiply confidence by 0.707)
+Pred_error|147.84|6.85
+Exp_error_Full_data|145.74|6.84
+MAE_(Average Prediction both Neural Networks)|143.6|6.83
 
-hhh
