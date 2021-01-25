@@ -322,3 +322,40 @@ def mloss(_lambda,Quantile_1,Quantile_3):
     return loss
 ```
 #  Model_Performance
+Train Data is of 176 Patient data
+Test_Data is of Patient 200  Patient data
+
+### Neural Network(without confidence)
+Loss Function Used
+```python
+def loss(y_true,y_pred):
+    e = y_true - y_pred
+    threshold=20
+    e=tf.math.abs(e)
+    if(K.mean(e)<threshold):
+        e=K.mean(e)
+    else:
+        #RMSE
+        e=tf.math.square(e)
+        e=K.mean(e)
+        e=K.sqrt(e)
+    return e
+```
+### Reason to use both RMSE and MAE in Loss Function
+Mean Absolute Error Optimizes the error arround Median while RMSE and MSE optimizes around mean(mean is affected by the outlier not median)
+and there are case which seems the outlier but it's not because most of the patient are senior citizen while there are less people between 30 -60
+so inorder to capture the pattern for the both group, model have to optimize but RMSE and MSE.<br/>
+
+Error|Value
+---|---
+train_loss|4.0373
+k-fold val_loss|3.80
+MAE_full_data|155.3
+Pred_error|148.1
+Exp_error_Full_data|145.23
+
+* Pred_Error : It is modification of Predicted Value,and it done
+               * First Calculate residual of the Particular Patient Baseline FVC<br/>
+               * add the value residual to predicted value,to get adjused FVC
+* Exp_Error : The procedure of Exp Error is same as Pred_Error but in this The Residual Value is Not directly Added insted the value decreased exponentially on moving               away from baseline Week FVC<br/>
+
